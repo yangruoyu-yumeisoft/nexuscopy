@@ -1,0 +1,2 @@
+# nexuscopy
+这是一个用于Nexus仓库迁移的工具，可以从一个Nexus仓库获取所有的jar包，并将它们上传到另一个Nexus仓库。
