@@ -1,0 +1,20 @@
+{
+  "source": {
+    "url": "https://source-nexus.example.com",
+    "repository": "maven-releases",
+    "username": "source-user",
+    "password": "source-password"
+  },
+  "target": {
+    "url": "https://target-nexus.example.com",
+    "repository": "maven-releases",
+    "username": "target-user",
+    "password": "target-password"
+  },
+  "settings": {
+    "temp_dir": "./temp_artifacts",
+    "verify_ssl": false,
+    "batch_size": 10,
+    "retry_count": 3
+  }
+} 
