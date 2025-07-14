@@ -20,7 +20,13 @@ pip install -r requirements.txt
 
 ## 使用方法
 
-### 基本用法
+### UI界面用法
+
+```bash
+python nexus_copy.py --ui
+```
+
+### CLI基本用法
 
 ```bash
 python nexus_copy.py \
@@ -36,6 +42,8 @@ python nexus_copy.py \
 
 ### 参数说明
 
+- `--ui`: 以图形界面方式运行，这种方式下无需加入其他参数
+
 - `--source-url`: 源Nexus仓库的URL
 - `--target-url`: 目标Nexus仓库的URL
 - `--source-repo`: 源仓库名称（如maven-releases）
@@ -49,6 +57,7 @@ python nexus_copy.py \
 - `--download-only`: 仅下载不上传
 - `--upload-only`: 仅上传不下载
 - `--no-cleanup`: 不清理临时文件
+- `--sync-mode` : full为全量同步（默认），incremental为增量同步
 
 ### 使用示例
 
@@ -62,7 +71,8 @@ python nexus_copy.py \
   --source-user admin \
   --source-pass admin123 \
   --target-user admin \
-  --target-pass admin123
+  --target-pass admin123 \
+  --sync-mode full
 ```
 
 2. **仅下载jar包**：
@@ -83,6 +93,20 @@ python nexus_copy.py \
   --target-user admin \
   --target-pass admin123 \
   --upload-only
+```
+
+4. **增量同步**：
+```bash
+python nexus_copy.py \
+  --source-url https://old-nexus.company.com \
+  --target-url https://new-nexus.company.com \
+  --source-repo maven-releases \
+  --target-repo maven-releases \
+  --source-user admin \
+  --source-pass admin123 \
+  --target-user admin \
+  --target-pass admin123 \
+  --sync-mode incremental
 ```
 
 ## 工作流程
