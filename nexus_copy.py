@@ -685,6 +685,11 @@ def main():
     parser.add_argument("--ui", action="store_true", help="以图形界面模式启动")
     args = parser.parse_args()
 
+    # 如果没有参数，友好提示
+    if not args.ui and not (args.source_url and args.target_url and args.source_repo and args.target_repo):
+        print("请用 --ui 启动图形界面，或用 --help 查看命令行用法")
+        return
+    
     if args.ui:
         NexusCopyUI().run()
         return
